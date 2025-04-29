@@ -1,5 +1,5 @@
 import React from 'react'
-import Lightroom from 'react-lightbox-gallery'
+import Lightroom from 'yet-another-react-lightbox'
 import GalleryImg1 from "../../assets/images/gallery/g1.webp"
 import GalleryImg3 from "../../assets/images/gallery/g3.webp"
 import GalleryImg4 from "../../assets/images/gallery/g4.jpg"
