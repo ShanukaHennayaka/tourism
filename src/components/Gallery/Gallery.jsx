@@ -12,31 +12,31 @@ const Gallery = () => {
     var images = [
         {
             src: GalleryImg1,
-            desc: "Person wearing shoes",
-            sub: "Gift Habeshaw"
+            desc: "",
+            sub: ""
         },
         {
             src: GalleryImg3,
-            desc: "Blonde woman wearing sunglasses smiling at the camera ",
-            sub: "Dmitriy Frantsev"
+            desc: "",
+            sub: ""
         },
         {
             src: GalleryImg6,
-            sub: "Harry Cunningham"
+            sub: ""
         },
         {
             src: GalleryImg4,
-            desc: "Jaipur , Rajasthan India",
-            sub: "Liam Baldock"
+            desc: "",
+            sub: ""
         },
         {
             src: GalleryImg7,
-            sub: "Verne Ho"
+            sub: ""
         },
         {
             src: GalleryImg6,
-            desc: "Rann of kutch , India",
-            sub: "Hari Nandakumar"
+            desc: "",
+            sub: ""
         },
     ];
 
@@ -54,4 +54,4 @@ const Gallery = () => {
    );
 }
 
-export default Gallery
+export default Gallery;
