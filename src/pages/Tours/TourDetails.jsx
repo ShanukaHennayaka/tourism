@@ -19,21 +19,22 @@ import {
 
 const TourDetails = () => {
   useEffect(() => {
-    document.title = " Tours  Details  ";
+    document.title = "Tours Details";
     window.scroll(0, 0);
   }, []);
+
   return (
     <>
       <Breadcrumbs
         title={tourDetails.title}
-        pagename=<NavLink to="/tours">Tours</NavLink>
+        pagename={<NavLink to="/tours">Tours</NavLink>}
         childpagename={tourDetails.title}
       />
 
       <section className="tour_details py-5">
         <Container>
           <Row>
-            <h1 className="fs-2 font-bold mb-4">{tourDetails.title} </h1>
+            <h1 className="fs-2 font-bold mb-4">{tourDetails.title}</h1>
             <ImageGallery
               items={tourDetails.images}
               showNav={false}
@@ -45,24 +46,18 @@ const TourDetails = () => {
               <Row className="py-5">
                 <Col md={8} className="mb-3 mb-md-0">
                   <Col md={12}>
-                    <Nav
-                      variant="pills"
-                      className="flex-row nav_bars rounded-2"
-                    >
+                    <Nav variant="pills" className="flex-row nav_bars rounded-2">
                       <Nav.Item>
-                        <Nav.Link eventKey="1"> Overview </Nav.Link>
+                        <Nav.Link eventKey="1">Overview</Nav.Link>
                       </Nav.Item>
                       <Nav.Item>
                         <Nav.Link eventKey="2">Itinerary</Nav.Link>
                       </Nav.Item>
                       <Nav.Item>
-                        <Nav.Link eventKey="3">
-                          {" "}
-                          Inclusions & Exclusion{" "}
-                        </Nav.Link>
+                        <Nav.Link eventKey="3">Inclusions & Exclusion</Nav.Link>
                       </Nav.Item>
                       <Nav.Item>
-                        <Nav.Link eventKey="4">Location </Nav.Link>
+                        <Nav.Link eventKey="4">Location</Nav.Link>
                       </Nav.Item>
                     </Nav>
                   </Col>
@@ -75,34 +70,32 @@ const TourDetails = () => {
                         </h1>
                         <p className="body-text">{tourDetails.des}</p>
 
-                        <h5 className="font-bold mb-2 h5  mt-3">Tour Info</h5>
+                        <h5 className="font-bold mb-2 h5 mt-3">Tour Info</h5>
 
                         <ListGroup>
-                          {tourDetails.tourInfo.map((val, index) => {
-                            return (
-                              <ListGroup.Item
-                                className="border-0 pt-0 body-text"
-                                key={index}
-                                dangerouslySetInnerHTML={{ __html: val }}
-                              ></ListGroup.Item>
-                            );
-                          })}
+                          {tourDetails.tourInfo.map((val, index) => (
+                            <ListGroup.Item
+                              className="border-0 pt-0 body-text"
+                              key={index}
+                              dangerouslySetInnerHTML={{ __html: val }}
+                            />
+                          ))}
                         </ListGroup>
 
-                        <h5 className="font-bold mb-2 h5  mt-3">
+                        <h5 className="font-bold mb-2 h5 mt-3">
                           Tour highlights
                         </h5>
 
-                        {tourDetails.highlights.map((val, index) => {
-                          return (
+                        <ListGroup>
+                          {tourDetails.highlights.map((val, index) => (
                             <ListGroup.Item
                               className="border-0 pt-0 body-text"
                               key={index}
                             >
                               {val}
                             </ListGroup.Item>
-                          );
-                        })}
+                          ))}
+                        </ListGroup>
                       </div>
                     </Tab.Pane>
 
@@ -113,26 +106,20 @@ const TourDetails = () => {
                         </h1>
 
                         <Accordion defaultActiveKey="0" className="mt-4">
-                          {tourDetails.itinerary.map((val, index) => {
-                            return (
-                              <Accordion.Item
-                                eventKey={index}
-                                key={index}
-                                className="mb-4"
-                              >
-                                <Accordion.Header>
-                                  <h1
-                                    dangerouslySetInnerHTML={{
-                                      __html: val.title,
-                                    }}
-                                  ></h1>
-                                </Accordion.Header>
-                                <Accordion.Body className="body-text">
-                                  {val.des}
-                                </Accordion.Body>
-                              </Accordion.Item>
-                            );
-                          })}
+                          {tourDetails.itinerary.map((val, index) => (
+                            <Accordion.Item
+                              eventKey={index.toString()}
+                              key={index}
+                              className="mb-4"
+                            >
+                              <Accordion.Header>
+                                <span dangerouslySetInnerHTML={{ __html: val.title }} />
+                              </Accordion.Header>
+                              <Accordion.Body className="body-text">
+                                {val.des}
+                              </Accordion.Body>
+                            </Accordion.Item>
+                          ))}
                         </Accordion>
                       </div>
                     </Tab.Pane>
@@ -143,35 +130,36 @@ const TourDetails = () => {
                           Inclusions & Exclusions
                         </h1>
 
-                        <h5 className="font-bold mb-3 h5  mt-3">Inclusion</h5>
+                        <h5 className="font-bold mb-3 h5 mt-3">Inclusion</h5>
 
-                        {tourDetails.included.map((val, index) => {
-                          return (
+                        <ListGroup>
+                          {tourDetails.included.map((val, index) => (
                             <ListGroup.Item
                               className="border-0 pt-0 body-text d-flex align-items-center"
                               key={index}
                             >
-                              <i className="bi bi-check-lg me-2 text-success h4 m-0"></i>{" "}
+                              <i className="bi bi-check-lg me-2 text-success h4 m-0"></i>
                               {val}
                             </ListGroup.Item>
-                          );
-                        })}
+                          ))}
+                        </ListGroup>
 
-                        <h5 className="font-bold mb-3 h5  mt-3">Exclusion</h5>
+                        <h5 className="font-bold mb-3 h5 mt-3">Exclusion</h5>
 
-                        {tourDetails.exclusion.map((val, index) => {
-                          return (
+                        <ListGroup>
+                          {tourDetails.exclusion.map((val, index) => (
                             <ListGroup.Item
                               className="border-0 pt-0 body-text d-flex align-items-center"
                               key={index}
                             >
-                              <i className="bi bi-x-lg me-2 text-danger h5 m-0"></i>{" "}
+                              <i className="bi bi-x-lg me-2 text-danger h5 m-0"></i>
                               {val}
                             </ListGroup.Item>
-                          );
-                        })}
+                          ))}
+                        </ListGroup>
                       </div>
                     </Tab.Pane>
+                    
                     <Tab.Pane eventKey="4">
                       <div className="tour_details">
                         <h1 className="font-bold mb-4 h3 border-bottom pb-2">
@@ -182,10 +170,11 @@ const TourDetails = () => {
                           src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15845.14643012811!2d79.8538016!3d6.9270786!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae2593cf65a1e9d%3A0xe13da4b400e2d38c!2sColombo!5e0!3m2!1sen!2slk!4v1716980000000!5m2!1sen!2slk"
                           width="100%"
                           height="400px"
-                          allowFullScreen=""
+                          allowFullScreen
                           loading="lazy"
                           referrerPolicy="no-referrer-when-downgrade"
-                        ></iframe>
+                          title="Tour Location Map"
+                        />
                       </div>
                     </Tab.Pane>
                   </Tab.Content>
@@ -199,7 +188,7 @@ const TourDetails = () => {
                           <h1 className="font-bold mb-0 h2">
                             ${tourDetails.price}
                           </h1>
-                          <span className="fs-4"> /person</span>
+                          <span className="fs-4">/person</span>
                         </Stack>
 
                         <div className="d-flex justify-content-between align-items-center mb-3">
@@ -223,7 +212,7 @@ const TourDetails = () => {
                               <i className="bi bi-star-half"></i>
                             </ListGroup.Item>
                           </ListGroup>
-                          <h5 className="h6"> ({tourDetails.reviews})</h5>
+                          <h5 className="h6">({tourDetails.reviews})</h5>
                         </div>
 
                         <NavLink
@@ -237,27 +226,28 @@ const TourDetails = () => {
 
                     <Card className="card-info p-2 shadow-sm">
                       <Card.Body>
-                        <h1 className="font-bold mb-2 h3">Need Help ?</h1>
+                        <h1 className="font-bold mb-2 h3">Need Help?</h1>
 
                         <ListGroup>
                           <ListGroup.Item className="border-0">
-                            <i className="bi bi-telephone me-1"></i> Call us on:{" "}
-                            <strong>+91 123 456 789</strong>
+                            <a href="tel:+91123456789" className="text-decoration-none text-dark">
+                              <i className="bi bi-telephone me-1"></i> Call us on:{" "}
+                              <strong>+91 123 456 789</strong>
+                            </a>
                           </ListGroup.Item>
                           <ListGroup.Item className="border-0">
                             <i className="bi bi-alarm me-1"></i> Timing:{" "}
                             <strong>10AM to 7PM</strong>
                           </ListGroup.Item>
                           <ListGroup.Item className="border-0">
-                            <strong>
-                              {" "}
-                              <i className="bi bi-headset me-1"></i> Let us call
-                              you
-                            </strong>
+                            <a href="#callback" className="text-decoration-none text-dark">
+                              <i className="bi bi-headset me-1"></i> Let us call you
+                            </a>
                           </ListGroup.Item>
                           <ListGroup.Item className="border-0">
-                            <i className="bi bi-calendar-check me-1"></i>{" "}
-                            <strong> Book Appointments</strong>{" "}
+                            <NavLink to="/appointments" className="text-decoration-none text-dark">
+                              <i className="bi bi-calendar-check me-1"></i> Book Appointments
+                            </NavLink>
                           </ListGroup.Item>
                         </ListGroup>
                       </Card.Body>
