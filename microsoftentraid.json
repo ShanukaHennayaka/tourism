@@ -1,0 +1,14 @@
+{
+    "openapi": "3.1.0",
+    "info": {
+        "title": "Microsoft Entra ID API - Actions",
+        "version": "1.0.0",
+        "description": "APIs in Microsoft Entra ID."
+    },
+
+    "servers": [
+        {
+            "url": "/"
+        }
+    ]
+}
